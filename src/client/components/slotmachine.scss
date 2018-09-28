@@ -22,6 +22,8 @@
   radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
   box-shadow: inset 10px 10px 30px rgba(black, 0.3);
 
+
+
   & > div {
     position: relative;
     width:200px;
@@ -40,8 +42,7 @@
       bottom: 0;
       display: flex;
       flex-direction: column-reverse;
-
-      translate: height 0.5s ease;
+      transition: height 0.5s ease, bottom 0.5s ease-out;
 
       & > div {
         transform: translateY(50%);
@@ -49,4 +50,9 @@
     }
   }
 
+  &.plus {
+    & > div > div {
+      bottom: -1200px;
+    }
+  }
 }
