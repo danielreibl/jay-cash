@@ -17,6 +17,7 @@ export default class Slotmachine extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      plusClass: false,
       bet: 10,
       result: [0, 4, 8],
       spinned: false,
@@ -178,10 +179,21 @@ export default class Slotmachine extends Component {
       this.setState({ spinReels: [0, 1, 2] });
     }
 
-    return await this.resetMachine();
+    this.setState({
+      plusClass: true,
+    });
+
+    this.setTimeout(() => {
+      this.setState({
+        plusClass: false,
+      });
+    }, 2000);
+
+    return this.resetMachine();
   }
 
   render() {
+    const {plusClass} = this.state;
     return (
       <div className="slot-machine" id="slot-machine">
         <div class="header">
@@ -193,7 +205,7 @@ export default class Slotmachine extends Component {
 
 
 
-        <div className="slot-body">
+        <div className={`slot-body ${plusClass ? 'plus' : ''}`}>
           <div>
             <div>{this.state.reels[0]}</div>
           </div>
