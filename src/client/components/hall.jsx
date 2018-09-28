@@ -37,8 +37,6 @@ export default class Hall extends Component {
           {/*<Link to="/blackjack">blackjack</Link>*/}
           <Link className="slotmachine" to="/slotmachine">slotmachine</Link>
           </div>
-          <button onClick={() => this.handleClick()}>click me and watch console</button>
-          <input placeholder="Your username" onChange={e => this.nameChanged(e)} value={this.state.username}></input>
         </p>
         </div>
       </div>

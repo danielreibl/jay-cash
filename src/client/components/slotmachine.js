@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import { singletonState } from '../singletonState';
 import './slotmachine.scss';
 import { imageValues } from '../../games/slotmachine/image-values';
@@ -20,8 +21,25 @@ export default class Slotmachine extends Component {
       spinned: false,
       isPair: false,
       spinReels: [0, 1, 2],
-      reels: [], // TODO:
+      reels: [0, 4, 8].map(i => this.generateSlot(i)),
+      user: {
+        coin: 0,
+      },
+      userName: 'nickey',
+      nextUser: 'nickey',
     }
+  }
+  changeNextUser = (e) => {
+    this.setState({
+      nextUser: e.target.value
+    });
+  }
+  changeUser = async () => {
+    const { data } = await axios.get(`/api/user/${this.state.nextUser}`);
+    this.setState({
+      user: data,
+      userName: data.name,
+    });
   }
   resetMachine() {
     this.setState({
@@ -30,7 +48,7 @@ export default class Slotmachine extends Component {
       isPair: false,
       spinReels: [0, 1, 2],
       reels: this.state.reels, // TODO:
-    })
+    });
   }
   increaseBet() {
     this.setState({ bet: this.state.bet + 10 });
@@ -64,7 +82,21 @@ export default class Slotmachine extends Component {
     }
     console.log({ uniqueReel })
     // TODO:
+    this.setState({
+      bet: this.state.bet,
+      spinned: false,
+      isPair: true,
+      spinReels: [uniqueReel],
+      reels: this.state.reels, // TODO:
+    })
 
+  }
+
+  componentDidMount = async() => {
+    const { data } = await axios.get(`/api/user/${this.state.userName}`);
+    this.setState({
+      user: data
+    });
   }
 
   getStyle = (value) => ({
@@ -87,14 +119,17 @@ export default class Slotmachine extends Component {
       divs.map((value => (<div style={this.getStyle(value)}></div>)))
     )
   };
-  removeFunds = async({ amount }) => {
-    // TODO: take money
-    console.log('removing', amount)
+  removeFunds = async ({ amount }) => {
+    const result = await axios.post('/api/bet', {
+      userName: this.state.userName, bet: this.state.bet, change: -amount,
+    });
+    console.log('removing', amount, result.data);
   }
-  addFunds = async({ amount }) => {
-    // TODO: add money
-    console.log('adding', amount)
-
+  addFunds = async ({ amount }) => {
+    const result = await axios.post('/api/bet', {
+      userName: this.state.userName, bet: this.state.bet, change: amount,
+    });
+    console.log('adding', amount, result.data);
   }
   spin = async() => {
     this.setState({ spinned: true });
@@ -110,17 +145,21 @@ export default class Slotmachine extends Component {
 
     console.log(result)
 
-    const reels = result.map(this.generateSlot);
+    const reels = result.map((r, i) => this.state.reels[i].concat(this.generateSlot(r)));
     this.setState({ reels });
 
     if (result[0] === result[1] && result[0] === result[2]) return await this.handleWin({ result });
     if (result[0] === result[1] || result[0] === result[2] || result[1] === result[2]) return await this.handlePair({ result });
-    return await this.resetMachine()
+    return await this.resetMachine();
   }
 
   render() {
     return (
       <div className="slot-machine" id="slot-machine">
+        <div class="header">
+          <input type="text" value={this.state.nextUser} onChange={(e) => this.changeNextUser(e)}></input><button onClick={() => this.changeUser()}>Login user</button>
+          <h1>JayCash</h1>
+        </div>
         <button onClick={() => this.increaseBet()}>+</button>
         <button onClick={() => this.decreaseBet()}>-</button>
         <button onClick={() => this.spin()}>spin</button>
@@ -145,6 +184,15 @@ export default class Slotmachine extends Component {
         <p>
           <Link to="/">i want to go and win elswhere</Link>
         </p>
+
+        <div class="player">
+          <div class="money">{this.state.user.coin}$</div>
+          <div class="image">
+            <img src="/assets/images/user.png" alt="theuser" />
+          </div>
+            <button className="spin" onClick={() => this.spin()} disabled={!this.state.canSpin}>Spin!</button>
+          <button onClick={() => this.reset()} disabled={!this.state.canSpin}>I want to do again!</button>
+        </div>
 
       </div>
     )
