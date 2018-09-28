@@ -41,7 +41,7 @@ export default class Roulette extends Component {
   startSpin = (result) => {
     const { winnings, winningNumber } = result;
     console.log({winnings, winningNumber});
-    this.setState({spinTo: winningNumber.toString(), canSpin: false});
+    this.setState({spinTo: winningNumber.toString(), canSpin: false, animate: true});
     console.log({
       userName: 'lllllllll', bet: this.state.bets.reduce((p, n) => p + n.value, 0), change: 1,
     })
@@ -59,13 +59,15 @@ export default class Roulette extends Component {
           }
         });
       };
-      
+
       console.log('ready')
-      this.setState({
-        canSpin: true,
-        bets: [],
-        animate: false,
-      });
+      setTimeout(()  => {
+        this.setState({
+          canSpin: true,
+          bets: [],
+          animate: false,
+        });
+      }, 3000);
     }, 4000);
   }
   spin = () => {
@@ -93,7 +95,9 @@ export default class Roulette extends Component {
             </div>
             <div className="wheel-border"></div>
             <div className="base">
-              <div className={`wheel nmb-${this.state.spinTo} ${this.state.animate ? 'animate' : 'no-animate'}`}  >
+              
+     
+              <div className={`wheel ${this.state.animate ?` nmb-${this.state.spinTo} animate` : 'no-animate'}`}  >
                 <div className="wheel-wood">
                   <div className="wheel-steel">
                     <div className="wheel-numbers">

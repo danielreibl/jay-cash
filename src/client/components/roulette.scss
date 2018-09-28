@@ -116,6 +116,18 @@ a {
 		}
 	}
 
+	&.no-animate {
+		transition: transform 0s ease-out;
+
+		& + .ball {
+			transition: transform 0s ease-out;
+	
+			&:after {
+				transition: top 0s ease 0s;
+			}
+		}
+	}
+
 	&.nmb-0 {
 		transform: rotate(16.3turn);
 
@@ -869,11 +881,18 @@ a {
 
 .coin {
 	position: absolute;
-	left: 0;
-	top: 0;
-	width: 25px;
-	height: 25px;
-	background-color: gold;
+	left: 50%;
+	bottom: 0;
+	width: 30px;
+	height: 30px;
+	margin-left: -15px;
+	background: {
+		image: url(/assets/images/coins.png);
+		size: cover;
+		repeat: no-repeat;
+	}
+	font-size: 0;
+	color: transparent;
 }
 
 .green-bg {
