@@ -329,6 +329,54 @@ a {
 		}
 	}
 
+	&.nmb-18 {
+		transform: rotate(19turn + (20 * $magic-angle));
+
+		& + .ball {
+			transform: rotate(-2turn + (12 * $magic-angle));
+
+			&:after {
+				top: 86px;
+			}
+		}
+	}
+
+	&.nmb-20 {
+		transform: rotate(19turn + (20 * $magic-angle));
+
+		& + .ball {
+			transform: rotate(-2turn + (7 * $magic-angle));
+
+			&:after {
+				top: 86px;
+			}
+		}
+	}
+
+	&.nmb-22 {
+		transform: rotate(19turn + (20 * $magic-angle));
+
+		& + .ball {
+			transform: rotate(-2turn + (11 * $magic-angle));
+
+			&:after {
+				top: 86px;
+			}
+		}
+	}
+
+	&.nmb-23 {
+		transform: rotate(19turn + (20 * $magic-angle));
+
+		& + .ball {
+			transform: rotate(-2turn);
+
+			&:after {
+				top: 86px;
+			}
+		}
+	}
+
 	&.nmb-24 {
 		transform: rotate(13turn + (5 * $magic-angle));
 
@@ -346,6 +394,18 @@ a {
 
 		& + .ball {
 			transform: rotate(-2turn + (12 * $magic-angle));
+
+			&:after {
+				top: 86px;
+			}
+		}
+	}
+
+	&.nmb-31 {
+		transform: rotate(19turn + (20 * $magic-angle));
+
+		& + .ball {
+			transform: rotate(-2turn + (9 * $magic-angle));
 
 			&:after {
 				top: 86px;
