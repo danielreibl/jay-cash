@@ -13,9 +13,12 @@ $base-border: #20c997;
 $steel: #fff;
 $wood: #814833;
 $wood-texture: 'https://media.istockphoto.com/photos/wood-texture-background-picture-id617894572?k=6&m=617894572&s=612x612&w=0&h=G-s2wFJH8QMoQYlnO36N_b7H-xkd8MUy-ZveOwenkF0=';
+$magic-angle: 0.027027027;
+
 a {
 	color: $steel;
 }
+
 #roulette {
 	.base {
 		position: fixed;
@@ -29,13 +32,11 @@ a {
 			135deg,
 			transparent,
 			transparent,
-      rgba(0, 0, 0, 0.5)
-    );
+      	rgba(0, 0, 0, 0.5)
+    	);
     background-color: $base;
     background-blend-mode: overlay;
 	}
-	
-	
 }
 
 .wheel-border {
@@ -159,7 +160,7 @@ a {
 		transform-origin: bottom center;
 		
 		span {
-			dispay: block;
+			display: block;
 			width: 20px;
 			height: 20px;
 			position: absolute;
@@ -184,7 +185,7 @@ a {
 			&:nth-child(#{$i}) {
 				transform: rotate(#{$turn}turn);
 				
-				$turn: $turn + 0.027027027;
+				$turn: $turn + $magic-angle;
 			}
 		}
 	}
