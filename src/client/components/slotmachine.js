@@ -20,7 +20,7 @@ export default class Slotmachine extends Component {
       bet: 10,
       spinned: false,
       isPair: false,
-      spinReels: [0, 1, 2],
+      spinReels: [0, 1, 2], 
       reels: [0, 4, 8].map(i => this.generateSlot(i)),
       user: {
         coin: 0,
@@ -160,13 +160,7 @@ export default class Slotmachine extends Component {
           <input type="text" value={this.state.nextUser} onChange={(e) => this.changeNextUser(e)}></input><button onClick={() => this.changeUser()}>Login user</button>
           <h1>JayCash</h1>
         </div>
-        <button onClick={() => this.increaseBet()}>+</button>
-        <button onClick={() => this.decreaseBet()}>-</button>
-        <button onClick={() => this.spin()}>spin</button>
         {this.state.bet}
-
-
-        
 
         <div className="slot-body">
           <div>
@@ -190,8 +184,10 @@ export default class Slotmachine extends Component {
           <div class="image">
             <img src="/assets/images/user.png" alt="theuser" />
           </div>
-            <button className="spin" onClick={() => this.spin()} disabled={!this.state.canSpin}>Spin!</button>
-          <button onClick={() => this.reset()} disabled={!this.state.canSpin}>I want to do again!</button>
+
+            <button onClick={() => this.increaseBet()}>+</button>
+        <button onClick={() => this.decreaseBet()}>-</button>
+        <button onClick={() => this.spin()}>spin</button>
         </div>
 
       </div>
