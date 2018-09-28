@@ -104,7 +104,7 @@ export default class Roulette extends Component {
         <main>
           <div id="roulette">
             <div class="header">
-              <input type="text" value={this.state.nextUser} onChange={(e) => this.changeNextUser(e)}></input><button onClick={() => this.changeUser()}></button>
+              <input type="text" value={this.state.nextUser} onChange={(e) => this.changeNextUser(e)}></input><button onClick={() => this.changeUser()}>Login user</button>
               <h1>JayCash</h1>
             </div>
             <div className="wheel-border"></div>

@@ -23,8 +23,10 @@ export default class Hall extends Component {
   render() {
     console.log('state', this.state)
     return (
-      <div className='hello-world'>
-        <h1>Hello World Laci</h1>
+      <div>
+         <div class="header">
+            <h1>JayCash</h1>
+          </div>
         <p>
           Welcome to my world<br />
           <Link to="/roulette">roulette</Link><br />
