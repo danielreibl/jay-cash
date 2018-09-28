@@ -67,23 +67,7 @@ a {
 		}
 	}
 
-	&.nmb-4,
-	&.nmb-5,
-	&.nmb-6,
-	&.nmb-7,
-	&.nmb-8,
-	&.nmb-9,
-	&.nmb-10,
-	&.nmb-11,
-	&.nmb-12,
-	&.nmb-13,
-	&.nmb-14,
-	&.nmb-15,
-	&.nmb-16,
-	&.nmb-17,
-	&.nmb-18,
-	&.nmb-19,
-	&.nmb-20,
+	
 	&.nmb-31,
 	&.nmb-32,
 	&.nmb-33,
@@ -341,11 +325,35 @@ a {
 		}
 	}
 
+	&.nmb-19 {
+		transform: rotate(19turn + (22 * $magic-angle));
+
+		& + .ball {
+			transform: rotate(-2turn - (12 * $magic-angle));
+
+			&:after {
+				top: 86px;
+			}
+		}
+	}
+
 	&.nmb-20 {
 		transform: rotate(19turn + (20 * $magic-angle));
 
 		& + .ball {
 			transform: rotate(-2turn + (7 * $magic-angle));
+
+			&:after {
+				top: 86px;
+			}
+		}
+	}
+
+	&.nmb-21 {
+		transform: rotate(19turn + (22 * $magic-angle));
+
+		& + .ball {
+			transform: rotate(-2turn - (10 * $magic-angle));
 
 			&:after {
 				top: 86px;
@@ -394,6 +402,54 @@ a {
 
 		& + .ball {
 			transform: rotate(-2turn + (12 * $magic-angle));
+
+			&:after {
+				top: 86px;
+			}
+		}
+	}
+
+	&.nmb-26 {
+		transform: rotate(19turn + (22 * $magic-angle));
+
+		& + .ball {
+			transform: rotate(-2turn - (16 * $magic-angle));
+
+			&:after {
+				top: 86px;
+			}
+		}
+	}
+
+	&.nmb-27 {
+		transform: rotate(19turn + (22 * $magic-angle));
+
+		& + .ball {
+			transform: rotate(-2turn - (4 * $magic-angle));
+
+			&:after {
+				top: 86px;
+			}
+		}
+	}
+
+	&.nmb-28 {
+		transform: rotate(19turn + (22 * $magic-angle));
+
+		& + .ball {
+			transform: rotate(-2turn + (17 * $magic-angle));
+
+			&:after {
+				top: 86px;
+			}
+		}
+	}
+
+	&.nmb-29 {
+		transform: rotate(19turn + (22 * $magic-angle));
+
+		& + .ball {
+			transform: rotate(-2turn + (15 * $magic-angle));
 
 			&:after {
 				top: 86px;
