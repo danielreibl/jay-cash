@@ -146,7 +146,7 @@ export default class Slotmachine extends Component {
   }
   spin = async() => {
     this.setState({ spinned: true });
-    const result = [0, 1, 2].map(e => this.getRandom());
+    let result = [0, 1, 2].map(e => this.getRandom());
 
     // help some wins
     if (Math.random() > 0.975) result[1] = result[0];
