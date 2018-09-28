@@ -31,6 +31,77 @@ a {
 	color: $steel;
 }
 
+.header {
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 100%;
+	height: 80px;
+
+	border-bottom: 1px solid $base-border;
+	background-color: $base;
+
+	h1 {
+		position: absolute;
+		left: 50%;
+		top: -32px;
+		display: inline-block;
+		font-size: 60px;
+		transform: translateX(-50%);
+		padding: 30px 70px;
+		background-color: darken($base, 10%);
+		color: white;
+		border-radius: 50%;
+		border: 5px solid $base;
+		background-image: url('https://previews.123rf.com/images/joker3d/joker3d1208/joker3d120800004/14813842-falling-dollar-bills-on-white-background.jpg');
+		background-position: center center;
+
+		font-family: Arvo;
+		font-weight: bold;
+
+		text-align: center;
+
+		background-blend-mode: overlay;
+
+		text-shadow:
+			5px 5px 0 black;
+		;
+	}
+
+	input {
+		line-height: 24px;
+		margin-top: 10px;
+		margin-left: 10px;
+
+		border: 2px solid darken($base, 3%);
+		border-radius: 6px 0 0 6px;
+		padding: 0 5px;
+		font-weight: bold;
+		opacity: 0.5;
+
+		&:hover,
+		&:focus {
+			opacity: 0.8;
+		}
+	}
+	button {
+		line-height: 24px;
+
+		border: 2px solid darken($base, 3%);
+		background-color: darken($base, 6%);
+		border-radius: 0 6px 6px 0;
+		padding: 0 5px;
+		font-weight: bold;
+		color: white;
+		opacity: 0.5;
+
+		&:hover,
+		&:focus {
+			opacity: 0.8;
+		}
+	}
+
+
 #roulette {
 	position: fixed;
 	left: 0;
@@ -41,75 +112,7 @@ a {
 	background-size: cover;
 	background-position: center center;
 
-	.header {
-		position: fixed;
-		top: 0;
-		right: 0;
-		width: 100%;
-		height: 80px;
-
-		border-bottom: 1px solid $base-border;
-    	background-color: $base;
-
-		h1 {
-			position: absolute;
-			left: 50%;
-			top: -32px;
-			display: inline-block;
-			font-size: 60px;
-			transform: translateX(-50%);
-			padding: 30px 70px;
-			background-color: darken($base, 10%);
-			color: white;
-			border-radius: 50%;
-			border: 5px solid $base;
-			background-image: url('https://previews.123rf.com/images/joker3d/joker3d1208/joker3d120800004/14813842-falling-dollar-bills-on-white-background.jpg');
-			background-position: center center;
-
-			font-family: Arvo;
-			font-weight: bold;
-
-			text-align: center;
-
-			background-blend-mode: overlay;
-
-			text-shadow:
-				5px 5px 0 black;
-			;
-		}
-
-		input {
-			line-height: 24px;
-			margin-top: 10px;
-			margin-left: 10px;
-
-			border: 2px solid darken($base, 3%);
-			border-radius: 6px 0 0 6px;
-			padding: 0 5px;
-			font-weight: bold;
-			opacity: 0.5;
-
-			&:hover,
-			&:focus {
-				opacity: 0.8;
-			}
-		}
-		button {
-			line-height: 24px;
-
-			border: 2px solid darken($base, 3%);
-			background-color: darken($base, 6%);
-			border-radius: 0 6px 6px 0;
-			padding: 0 5px;
-			font-weight: bold;
-			color: white;
-			opacity: 0.5;
-
-			&:hover,
-			&:focus {
-				opacity: 0.8;
-			}
-		}
+	
 	}
 
 	.base {
@@ -788,6 +791,7 @@ a {
 		}
 	}
 }
+
 
 .board {
 	$cell-width: 46px;
