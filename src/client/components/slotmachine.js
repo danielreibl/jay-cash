@@ -154,16 +154,15 @@ export default class Slotmachine extends Component {
     let result = [0, 1, 2].map(e => this.getRandom());
 
     // help some wins
-    if (Math.random() > 0.975) result[1] = result[0];
-    if (Math.random() > 0.975) result[1] = result[2];
-    if (Math.random() > 0.975) result[0] = result[2];
-    if (Math.random() > 0.98) result[0] = result[2] = result[1];
+    if (Math.random() > 0.92) result[1] = result[0];
+    if (Math.random() > 0.92) result[1] = result[2];
+    if (Math.random() > 0.92) result[0] = result[2];
+    if (Math.random() > 0.95) result[0] = result[2] = result[1];
 
-    // if (this.state.isPair) {
-    //   this.setState({ isPair: false });
     result = result.map((r, i) => (this.state.spinReels.indexOf(i) >= 0) ? r : this.state.result[i]);
-    // }
 
+
+    
     await this.removeFunds({ amount: this.state.bet });
 
     console.log(result)
@@ -172,7 +171,13 @@ export default class Slotmachine extends Component {
     this.setState({ reels, result });
 
     if (result[0] === result[1] && result[0] === result[2]) return await this.handleWin({ result });
-    if (result[0] === result[1] || result[0] === result[2] || result[1] === result[2]) return await this.handlePair({ result });
+    if ((result[0] === result[1] || result[0] === result[2] || result[1] === result[2]) && !this.state.isPair ) return await this.handlePair({ result });
+    
+    if (this.state.isPair) {
+      this.setState({ isPair: false });
+      this.setState({ spinReels: [0, 1, 2] });
+    }
+
     return await this.resetMachine();
   }
 
