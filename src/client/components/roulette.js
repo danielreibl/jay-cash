@@ -240,7 +240,7 @@ export default class Roulette extends Component {
         </main>
 
 
-        <Link to="/">Get out!</Link>
+        <Link className="exit" to="/">Get out!</Link>
       </div>
     )
   }
