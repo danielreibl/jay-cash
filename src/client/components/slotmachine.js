@@ -84,7 +84,7 @@ export default class Slotmachine extends Component {
       return elementArray.concat(divs.map((value => (<div style={this.getStyle(value)}></div>))));
     }
     return (
-      divs.map((value => (<div style={this.getStyle(value)}></div>)));
+      divs.map((value => (<div style={this.getStyle(value)}></div>)))
     )
   };
   removeFunds = async({ amount }) => {
