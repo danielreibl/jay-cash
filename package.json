@@ -1,0 +1,63 @@
+{
+  "name": "monte-carlo",
+  "version": "1.0.0",
+  "description": "come and spend your money here",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"all tests passed\" && exit 0",
+    "build-assets": "webpack",
+    "build-prod": "webpack --env=prod -p",
+    "watch-assets": "webpack --watch --display-error-details --progress"
+  },
+  "keywords": [
+    "casino"
+  ],
+  "author": "Daniel Reible, Laszlo Varga, Miklos Lukasik, Robert Lovei",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^9.0.0",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-lodash": "^3.3.4",
+    "babel-plugin-transform-builtin-extend": "^1.1.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-flow": "^6.23.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "css-loader": "^1.0.0",
+    "express": "^4.16.3",
+    "keymirror": "^0.1.1",
+    "node-sass": "^4.9.3",
+    "postcss-loader": "^3.0.0",
+    "react": "^16.1.1",
+    "react-dom": "^16.5.2",
+    "sass-loader": "^7.1.0",
+    "superagent-defaults": "^0.1.14"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.1.5",
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "env-test": "^1.0.0",
+    "eslint": "^5.5.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-flowtype": "^2.50.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.1",
+    "mini-css-extract-plugin": "0.4.0",
+    "occamsrazor-generate": "^1.0.0",
+    "react-router-dom": "^4.3.1",
+    "webpack": "^4.4.1",
+    "webpack-async-define": "^1.1.1",
+    "webpack-bundle-analyzer": "^3.0.2",
+    "webpack-cli": "^3.1.0",
+    "webpack-merge": "^4.1.4"
+  }
+}
