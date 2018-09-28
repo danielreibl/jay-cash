@@ -27,7 +27,6 @@ data-migration/data/
 # *** Boilerplate auto-update files v3.0.97
 /.dockerignore
 /.editorconfig
-/Dockerfile
 /Makefile
 /.npmrc
 /docker/supervisor.conf
