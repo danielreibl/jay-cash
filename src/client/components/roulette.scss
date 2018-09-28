@@ -316,6 +316,66 @@ a {
 			}
 		}
 	}
+
+	&.nmb-17{
+		transform: rotate(13turn + (9 * $magic-angle));
+
+		& + .ball {
+			transform: rotate(-2turn + (17 * $magic-angle));
+
+			&:after {
+				top: 86px;
+			}
+		}
+	}
+
+	&.nmb-24 {
+		transform: rotate(13turn + (5 * $magic-angle));
+
+		& + .ball {
+			transform: rotate(-2turn + (25 * $magic-angle));
+
+			&:after {
+				top: 86px;
+			}
+		}
+	}
+
+	&.nmb-25 {
+		transform: rotate(13turn + (5 * $magic-angle));
+
+		& + .ball {
+			transform: rotate(-2turn + (12 * $magic-angle));
+
+			&:after {
+				top: 86px;
+			}
+		}
+	}
+
+	&.nmb-33 {
+		transform: rotate(13turn + (5 * $magic-angle));
+
+		& + .ball {
+			transform: rotate(-2turn + (27 * $magic-angle));
+
+			&:after {
+				top: 86px;
+			}
+		}
+	}
+
+	&.nmb-34 {
+		transform: rotate(13turn + (5 * $magic-angle));
+
+		& + .ball {
+			transform: rotate(-2turn + (14 * $magic-angle));
+
+			&:after {
+				top: 86px;
+			}
+		}
+	}
 }
 
 .ball {
