@@ -52,6 +52,12 @@ export default class Slotmachine extends Component {
       spinReels: [0, 1, 2],
       reels: this.state.reels, // TODO:
     });
+    setTimeout(() => {
+      this.setState({
+        plusClass: false,
+      });
+      console.log('wtf')
+    }, 2000);
   }
   increaseBet() {
     this.setState({ bet: this.state.bet + 10 });
@@ -182,12 +188,6 @@ export default class Slotmachine extends Component {
     this.setState({
       plusClass: true,
     });
-
-    this.setTimeout(() => {
-      this.setState({
-        plusClass: false,
-      });
-    }, 2000);
 
     return this.resetMachine();
   }
