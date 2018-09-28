@@ -63,7 +63,7 @@ a {
 
 			background-blend-mode: overlay;
 
-			text-shadow: 
+			text-shadow:
 				5px 5px 0 black;
 			;
 		}
@@ -154,7 +154,7 @@ a {
 
 		& + .ball {
 			transition: transform 0s ease-out;
-	
+
 			&:after {
 				transition: top 0s ease 0s;
 			}
@@ -648,7 +648,7 @@ a {
 		height: 350px;
 		background-color: $base;
 		border-radius: 50%;
-	
+
 	.wheel-wood {
 		display: flex;
 		width: 320px;
@@ -668,7 +668,7 @@ a {
 			size: cover;
 		}
 	}
-	
+
 	.wheel-steel {
 		display: flex;
 		width: 250px;
@@ -676,13 +676,13 @@ a {
 		background-color: $steel;
 		margin: auto;
 		border: {
-			
+
 			radius: 50%;
 		}
 		background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
                 radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
 	}
-	
+
 	.wheel-numbers {
 		position: relative;
 		width: 230px;
@@ -691,7 +691,7 @@ a {
 		background-color: #ced4da;
 		border-radius: 50%;
 		overflow: hidden;
-		
+
 		&:before {
 			content: "";
 			position: absolute;
@@ -704,10 +704,10 @@ a {
 			background: transparent;
 			border: 2px solid #e9ecef;
 			transform: translate(-50%, -50%);
-			
-			
+
+
 		}
-		
+
 		&:after {
 			content: "";
 			position: absolute;
@@ -717,14 +717,14 @@ a {
 			width: 150px;
 			height: 150px;
 			border-radius: 50%;
-		
+
 			transform: translate(-50%, -50%);
-			
+
 			background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
                 radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
 		}
 	}
-	
+
 	.nmb {
 		position: absolute;
 		bottom: 50%;
@@ -736,7 +736,7 @@ a {
 		line-height: 20px;
 		text-align: center;
 		font-size: 14px;
-		
+
 		border: {
 			width: 130px 10px 0 10px;
 			style: solid;
@@ -746,7 +746,7 @@ a {
 		font-weight: bold;
 		text-shadow: 0 0 3px rgba(black, 0.3);
 		transform-origin: bottom center;
-		
+
 		span {
 			display: block;
 			width: 20px;
@@ -755,24 +755,24 @@ a {
 			left: -10px;
 			bottom: 94px
 		}
-		
+
 		&.green {
 			border-top-color: #37b24d;
 		}
-		
+
 		&.red {
 			border-top-color: #c92a2a;
 		}
-		
+
 		&.black {
 			border-top-color: #212529;
 		}
-		
+
 		$turn: 0;
 		@for $i from 1 through 37 {
 			&:nth-child(#{$i}) {
 				transform: rotate(#{$turn}turn);
-				
+
 				$turn: $turn + $magic-angle;
 			}
 		}
@@ -782,7 +782,7 @@ a {
 .board {
 	$cell-width: 46px;
 	$cell-height: 42px;
-	
+
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: flex-end;
@@ -793,8 +793,8 @@ a {
 
 	.board-bank {
 		width: $cell-width;
-		height: ($cell-height * 3 + 1px); 
-		line-height: ($cell-height * 3 + 1px); 
+		height: ($cell-height * 3 + 1px);
+		line-height: ($cell-height * 3 + 1px);
 		border: {
 			left: 1px solid white;
 			bottom: 1px solid white;
@@ -805,7 +805,7 @@ a {
 		color: white;
 		font-weight: bold;
 	}
-	
+
 	.board-top {
 		display: flex;
 		flex-wrap: wrap;
@@ -816,7 +816,7 @@ a {
 			bottom: 1px solid white;
 		}
 	}
-	
+
 	.nmb {
 		position: relative;
 		width: $cell-width;
@@ -829,16 +829,16 @@ a {
 		color: white;
 		text-align: center;
 		font-weight: bold;
-		
+
 		&.nmb2x {
 			width: ($cell-width * 2);
 		}
-		
+
 		&.nmb4x {
 			width: ($cell-width * 4);
 		}
 	}
-	
+
 	.board-bottom {
 		margin: {
 			top: -1px;
@@ -896,7 +896,7 @@ a {
       	rgba(0, 0, 0, 0.3)
     	);
 	background-blend-mode: overlay;
-		
+
 		&.spin + button {
 			display: none;
 			font-size: 26px;
@@ -931,11 +931,11 @@ a {
 .green-bg {
 	background-color: #37b24d;
 }
-		
+
 .red-bg {
 	background-color: #c92a2a;
 }
-		
+
 .black-bg {
 	background-color: #212529;
 }

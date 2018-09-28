@@ -15,9 +15,8 @@ export default class Roulette extends Component {
       user: {
         coin: 0,
       },
-      bets: [
-        
-      ],
+      bets: [],
+      winners: [],
       userName: 'nickey',
       nextUser: 'nickey'
     };
@@ -53,6 +52,7 @@ export default class Roulette extends Component {
     return null;
   }
   startSpin = (result) => {
+    this.setState({winners: []});
     const { winnings, winningNumber } = result;
     console.log({winnings, winningNumber});
     this.setState({spinTo: winningNumber.toString(), canSpin: false, animate: true});
@@ -60,6 +60,9 @@ export default class Roulette extends Component {
     setTimeout(async () => {
       for(let bet of this.state.bets) {
         const win = winnings.find((win) => `${win.type}-${win.location}` === `${bet.type}-${bet.location}`);
+        if (win) {
+          this.setState({winners: [...this.state.winners, bet.user]});
+        }
         const result = await axios.post('/api/bet', {
           userName: bet.user, bet: 100, change: !win ? -100 : win.payout - 100,
         });
@@ -107,10 +110,11 @@ export default class Roulette extends Component {
               <input type="text" value={this.state.nextUser} onChange={(e) => this.changeNextUser(e)}></input><button onClick={() => this.changeUser()}>Login user</button>
               <h1>JayCash</h1>
             </div>
+            <div className={'winners'}>Winners: {this.state.winners.join(', ')}</div>
             <div className="wheel-border"></div>
             <div className="base">
-              
-     
+
+
               <div className={`wheel ${this.state.animate ?` nmb-${this.state.spinTo} animate` : 'no-animate'}`}  >
                 <div className="wheel-wood">
                   <div className="wheel-steel">
@@ -219,7 +223,7 @@ export default class Roulette extends Component {
                   <div className="nmb nmb2x" onClick={() => this.placeBet({ type: 'range', location: '19-36' })}>19 to 36{this.getCoins('range-19-36')}  </div>
                 </div>
               </div>
-                
+
               <div class="player">
                 <div class="money">{this.state.user.coin}$</div>
                 <div class="image">
@@ -228,14 +232,14 @@ export default class Roulette extends Component {
 
                  <button className="spin" onClick={() => this.spin()} disabled={!this.state.canSpin}>Spin!</button>
                   <button onClick={() => this.reset()} disabled={!this.state.canSpin}>I want to do again!</button>
-          
-              </div>    
+
+              </div>
             </div>
 
           </div>
         </main>
 
-        
+
         <Link to="/">Get out!</Link>
       </div>
     )
