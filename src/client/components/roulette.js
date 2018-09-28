@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import _ from 'lodash';
+import axios from 'axios';
 import './roulette.scss';
 import { RouletteSpin } from '../../games/roulette/roulette-game-round';
 
@@ -8,11 +9,18 @@ export default class Roulette extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      canSpin: true,
       spinTo: undefined,
       bets: [
         
       ]
     };
+  }
+  componentDidMount = async() => {
+    const { data } = await axios.get('/api/user/lllllllll');
+    this.setState({
+      user: data
+    });
   }
   getCoins = (type) => {
     const hasCoin = this.state.bets.find((bet) => `${bet.type}-${bet.location}` === type);
@@ -22,7 +30,13 @@ export default class Roulette extends Component {
   startSpin = (result) => {
     const { winnings, winningNumber } = result;
     console.log({winnings, winningNumber});
-    this.setState({spinTo: winningNumber.toString()});
+    this.setState({spinTo: winningNumber.toString(), canSpin: false});
+    setTimeout(() => {
+      this.setState({
+        canSpin: true,
+        bets: [],
+      })
+    }, 4000);
   }
   spin = () => {
     const spin = new RouletteSpin({
@@ -37,7 +51,7 @@ export default class Roulette extends Component {
   placeBet = ({ type, location }) => {
     console.log('placing bet', {type, location});
     this.setState({
-      bets: _.uniqWith([...this.state.bets, { type, location, value: 100, user: 1234 }], _.isEqual)
+      bets: _.uniqWith([...this.state.bets, { type, location, value: 100, user: this.state.user._id }], _.isEqual)
     });
     console.log(this.state.bets)
   }
@@ -163,8 +177,7 @@ export default class Roulette extends Component {
 
           </div>
         </main>
-        <button onClick={() => this.placeBet({ type: 'number', location: 0 })}>Place Bet</button>
-        <button onClick={() => this.spin()}>Spin!</button>
+        <button onClick={() => this.spin()} disabled={!this.state.canSpin}>Spin!</button>
         <Link to="/">Get out!</Link>
       </div>
     )

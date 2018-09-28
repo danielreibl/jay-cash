@@ -17,8 +17,8 @@ export default class Hall extends Component {
     singletonState.username = e.target.value;
   }
   componentDidMount = async () => {
-    // const { data } = await axios.get('/api/state');
-    // this.setState(data);
+    const { data } = await axios.get('/api/user/lllllllll');
+    this.setState(data);
   }
   render() {
     console.log('state', this.state)
