@@ -17,11 +17,25 @@ export default class Roulette extends Component {
       },
       bets: [
         
-      ]
+      ],
+      userName: 'nickey',
+      nextUser: 'nickey'
     };
   }
+  changeNextUser = (e) => {
+    this.setState({
+      nextUser: e.target.value
+    });
+  }
+  changeUser = async () => {
+    const { data } = await axios.get(`/api/user/${this.state.nextUser}`);
+    this.setState({
+      user: data,
+      userName: data.name,
+    });
+  }
   componentDidMount = async() => {
-    const { data } = await axios.get('/api/user/lllllllll');
+    const { data } = await axios.get(`/api/user/${this.state.userName}`);
     this.setState({
       user: data
     });
@@ -41,15 +55,14 @@ export default class Roulette extends Component {
   startSpin = (result) => {
     const { winnings, winningNumber } = result;
     console.log({winnings, winningNumber});
+
     this.setState({spinTo: winningNumber.toString(), canSpin: false, animate: true});
-    console.log({
-      userName: 'lllllllll', bet: this.state.bets.reduce((p, n) => p + n.value, 0), change: 1,
-    })
+
     setTimeout(async () => {
       for(let bet of this.state.bets) {
         const win = winnings.find((win) => `${win.type}-${win.location}` === `${bet.type}-${bet.location}`);
         const result = await axios.post('/api/bet', {
-          userName: 'lllllllll', bet: 100, change: !win ? -100 : win.payout,
+          userName: this.state.userName, bet: 100, change: !win ? -100 : win.payout,
         });
         const { coin } = result.data;
         console.log({coin})
@@ -91,6 +104,7 @@ export default class Roulette extends Component {
         <main>
           <div id="roulette">
             <div class="header">
+              <input type="text" value={this.state.nextUser} onChange={(e) => this.changeNextUser(e)}></input><button onClick={() => this.changeUser()}></button>
               <h1>JayCash</h1>
             </div>
             <div className="wheel-border"></div>
