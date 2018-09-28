@@ -172,7 +172,12 @@ export default class Roulette extends Component {
                 </div>
               </div>
                 
-              <div class="player"></div>    
+              <div class="player">
+                <div class="money">666$</div>
+                <div class="image">
+                  <img src="/assets/images/user.png" alt="theuser" />
+                </div>
+              </div>    
             </div>
 
           </div>
