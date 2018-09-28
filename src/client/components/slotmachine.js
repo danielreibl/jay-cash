@@ -18,6 +18,7 @@ export default class Slotmachine extends Component {
     super(props);
     this.state = {
       bet: 10,
+      result: [0, 4, 8],
       spinned: false,
       isPair: false,
       spinReels: [0, 1, 2], 
@@ -44,6 +45,7 @@ export default class Slotmachine extends Component {
   resetMachine() {
     this.setState({
       bet: this.state.bet,
+      result: this.state.result,
       spinned: false,
       isPair: false,
       spinReels: [0, 1, 2],
@@ -84,6 +86,7 @@ export default class Slotmachine extends Component {
     // TODO:
     this.setState({
       bet: this.state.bet,
+      result: this.state.result,
       spinned: false,
       isPair: true,
       spinReels: [uniqueReel],
@@ -141,12 +144,17 @@ export default class Slotmachine extends Component {
     if (Math.random() > 0.975) result[0] = result[2];
     if (Math.random() > 0.98) result[0] = result[2] = result[1];
 
+    // if (this.state.isPair) {
+    //   this.setState({ isPair: false });
+    result = result.map((r, i) => (this.state.spinReels.indexOf(i) >= 0) ? r : this.state.result[i]);
+    // }
+
     await this.removeFunds({ amount: this.state.bet });
 
     console.log(result)
 
-    const reels = result.map((r, i) => this.state.reels[i].concat(this.generateSlot(r)));
-    this.setState({ reels });
+    const reels = result.map((r, i) => this.generateSlot(r).concat( this.state.reels[i] ));
+    this.setState({ reels, result });
 
     if (result[0] === result[1] && result[0] === result[2]) return await this.handleWin({ result });
     if (result[0] === result[1] || result[0] === result[2] || result[1] === result[2]) return await this.handlePair({ result });
