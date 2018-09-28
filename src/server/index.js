@@ -36,6 +36,7 @@ app.post('/api/bet', async (req, res) => {
 });
 
 app.use(express.static('dist'));
+app.use('/assets', express.static('assets'));
 
 app.use((err, req, res, next) => {
   console.error(err);
