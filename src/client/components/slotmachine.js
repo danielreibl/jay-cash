@@ -109,12 +109,20 @@ export default class Slotmachine extends Component {
   
   render() {
     return (
-      <div className="slot-machine">
+      <div className="slot-machine" id="slot-machine">
         <button onClick={() => this.increaseBet()}>+</button>
         <button onClick={() => this.decreaseBet()}>-</button>
         <button onClick={() => this.spin()}>spin</button>
         {this.state.bet}
-        {this.state.reels}
+
+
+        
+
+        <div className="slot-body">
+          {this.state.reels}
+        </div>
+
+
         <p>
           <Link to="/">i want to go and win elswhere</Link>
         </p>
