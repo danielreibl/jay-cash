@@ -7,7 +7,9 @@
     "test": "echo \"all tests passed\" && exit 0",
     "build-assets": "webpack",
     "build-prod": "webpack --env=prod -p",
-    "watch-assets": "webpack --watch --display-error-details --progress"
+    "watch-assets": "webpack --watch --display-error-details --progress",
+    "build": "npm run build-assets",
+    "postinstall": "npm run build"
   },
   "keywords": [
     "casino"
@@ -31,14 +33,13 @@
     "css-loader": "^1.0.0",
     "express": "^4.16.3",
     "keymirror": "^0.1.1",
+    "lodash": "^4.17.11",
     "node-sass": "^4.9.3",
     "postcss-loader": "^3.0.0",
     "react": "^16.1.1",
     "react-dom": "^16.5.2",
     "sass-loader": "^7.1.0",
-    "superagent-defaults": "^0.1.14"
-  },
-  "devDependencies": {
+    "superagent-defaults": "^0.1.14",
     "autoprefixer": "^9.1.5",
     "babel": "^6.23.0",
     "babel-core": "^6.26.3",
