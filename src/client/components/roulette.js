@@ -55,22 +55,22 @@ export default class Roulette extends Component {
   startSpin = (result) => {
     const { winnings, winningNumber } = result;
     console.log({winnings, winningNumber});
-
     this.setState({spinTo: winningNumber.toString(), canSpin: false, animate: true});
-
+    console.log('bets', this.state.bets)
     setTimeout(async () => {
       for(let bet of this.state.bets) {
         const win = winnings.find((win) => `${win.type}-${win.location}` === `${bet.type}-${bet.location}`);
         const result = await axios.post('/api/bet', {
-          userName: this.state.userName, bet: 100, change: !win ? -100 : win.payout,
+          userName: bet.user, bet: 100, change: !win ? -100 : win.payout - 100,
         });
-        const { coin } = result.data;
-        console.log({coin})
-        this.setState({
-          user: {
-            ...this.state.user, coin
-          }
-        });
+        const { coin, userName } = result.data;
+        if (this.state.userName === userName){
+          this.setState({
+            user: {
+              ...this.state.user, coin
+            }
+          });
+        };
       };
 
       console.log('ready')
@@ -93,7 +93,7 @@ export default class Roulette extends Component {
   placeBet = ({ type, location }) => {
     console.log('placing bet', {type, location});
     this.setState({
-      bets: _.uniqWith([...this.state.bets, { type, location, value: 100, user: this.state.user._id }], _.isEqual)
+      bets: _.uniqWith([...this.state.bets, { type, location, value: 100, user: this.state.userName }], _.isEqual)
     });
     console.log(this.state.bets)
   }
