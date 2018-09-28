@@ -71,6 +71,7 @@ export default class Slotmachine extends Component {
     width: '100%',
     'padding-bottom': '100%',
     'background-image': `url("assets/images/${value}.jpg")`,
+    'background-size': 'cover',
   });
   generateSlot = (winner) => {
     let prev = -1;
