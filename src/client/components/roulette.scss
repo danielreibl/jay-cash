@@ -766,6 +766,7 @@ a {
 	position: absolute;
 	right: 50px;
 	bottom: 0;
+	min-width: 200px;
 
 	.money {
 		position: absolute;
@@ -792,7 +793,20 @@ a {
 			transparent,
       	rgba(0, 0, 0, 0.3)
     	);
-    background-blend-mode: overlay;
+	background-blend-mode: overlay;
+		
+		&.spin + button {
+			display: none;
+			font-size: 26px;
+		}
+
+		&.spin[disabled] {
+			display: none;
+
+			& + button {
+				display: block;
+			}
+		}
 	}
 }
 
