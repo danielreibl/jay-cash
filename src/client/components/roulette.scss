@@ -220,6 +220,102 @@ a {
 			}
 		}
 	}
+
+	&.nmb-9 {
+		transform: rotate(13turn + (14 * $magic-angle));
+
+		& + .ball {
+			transform: rotate(-2turn + (4 * $magic-angle));
+
+			&:after {
+				top: 86px;
+			}
+		}
+	}
+
+	&.nmb-10 {
+		transform: rotate(11turn + (16 * $magic-angle));
+
+		& + .ball {
+			transform: rotate(-2turn - (3 * $magic-angle));
+
+			&:after {
+				top: 86px;
+			}
+		}
+	}
+
+	&.nmb-11 {
+		transform: rotate(11turn + (16 * $magic-angle));
+
+		& + .ball {
+			transform: rotate(-2turn - (7 * $magic-angle));
+
+			&:after {
+				top: 86px;
+			}
+		}
+	}
+
+	&.nmb-12 {
+		transform: rotate(11turn + (16 * $magic-angle));
+
+		& + .ball {
+			transform: rotate(-2turn - (25 * $magic-angle));
+
+			&:after {
+				top: 86px;
+			}
+		}
+	}
+
+	&.nmb-13 {
+		transform: rotate(11turn + (16 * $magic-angle));
+
+		& + .ball {
+			transform: rotate(-2turn - (9 * $magic-angle));
+
+			&:after {
+				top: 86px;
+			}
+		}
+	}
+
+	&.nmb-14 {
+		transform: rotate(13turn + (5 * $magic-angle));
+
+		& + .ball {
+			transform: rotate(-2turn - (7 * $magic-angle));
+
+			&:after {
+				top: 86px;
+			}
+		}
+	}
+
+	&.nmb-15 {
+		transform: rotate(13turn + (5 * $magic-angle));
+
+		& + .ball {
+			transform: rotate(-2turn + (7 * $magic-angle));
+
+			&:after {
+				top: 86px;
+			}
+		}
+	}
+
+	&.nmb-16 {
+		transform: rotate(13turn + (5 * $magic-angle));
+
+		& + .ball {
+			transform: rotate(-2turn + (26 * $magic-angle));
+
+			&:after {
+				top: 86px;
+			}
+		}
+	}
 }
 
 .ball {
