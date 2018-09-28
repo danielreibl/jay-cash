@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { singletonState } from '../singletonState';
+import './hall.scss';
 
 export default class Hall extends Component {
   constructor(props) {
@@ -23,18 +24,23 @@ export default class Hall extends Component {
   render() {
     console.log('state', this.state)
     return (
-      <div>
+      <div id="hall">
          <div class="header">
             <h1>JayCash</h1>
           </div>
+
+          <div className="content">
+          <h2>Welcome to JayCash Casino!</h2>
         <p>
-          Welcome to my world<br />
-          <Link to="/roulette">roulette</Link><br />
-          <Link to="/blackjack">blackjack</Link><br />
-          <Link to="/slotmachine">slotmachine</Link><br />
+          <div className="links">
+          <Link className="roluette" to="/roulette">roulette</Link>
+          {/*<Link to="/blackjack">blackjack</Link>*/}
+          <Link className="slotmachine" to="/slotmachine">slotmachine</Link>
+          </div>
           <button onClick={() => this.handleClick()}>click me and watch console</button>
           <input placeholder="Your username" onChange={e => this.nameChanged(e)} value={this.state.username}></input>
         </p>
+        </div>
       </div>
     )
   }
