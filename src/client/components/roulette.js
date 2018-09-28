@@ -61,7 +61,7 @@ export default class Roulette extends Component {
       for(let bet of this.state.bets) {
         const win = winnings.find((win) => `${win.type}-${win.location}` === `${bet.type}-${bet.location}`);
         if (win) {
-          this.setState({winners: [...this.state.winners, bet.user]});
+          this.setState({winners: _.uniq([...this.state.winners, bet.user])});
         }
         const result = await axios.post('/api/bet', {
           userName: bet.user, bet: 100, change: !win ? -100 : win.payout - 100,
