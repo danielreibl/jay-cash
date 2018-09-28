@@ -126,11 +126,21 @@ export default class Slotmachine extends Component {
     const result = await axios.post('/api/bet', {
       userName: this.state.userName, bet: this.state.bet, change: -amount,
     });
-    console.log('removing', amount, result.data);
+    this.setState({
+      user: {
+        ...this.state.user, coin: result.data.coin
+      }
+    });
+    console.log('removing', amount, result.data.coin);
   }
   addFunds = async ({ amount }) => {
     const result = await axios.post('/api/bet', {
       userName: this.state.userName, bet: this.state.bet, change: amount,
+    });
+    this.setState({
+      user: {
+        ...this.state.user, coin: result.data.coin
+      }
     });
     console.log('adding', amount, result.data);
   }
