@@ -100,6 +100,7 @@ a {
 			opacity: 0.8;
 		}
 	}
+}
 
 
 #roulette {
@@ -112,8 +113,6 @@ a {
 	background-size: cover;
 	background-position: center center;
 
-	
-	}
 
 	.base {
 		position: fixed;
@@ -922,6 +921,16 @@ a {
 			& + button {
 				display: block;
 			}
+		}
+
+		.minus {
+			left: 10px;
+		}
+		.spin {
+			left: 100px;
+		}
+		.plus {
+			left: 150px;
 		}
 	}
 }

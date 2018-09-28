@@ -211,9 +211,9 @@ export default class Slotmachine extends Component {
             <img src="/assets/images/user.png" alt="theuser" />
           </div>
 
-          <button onClick={() => this.increaseBet()}>+</button>
-          <button onClick={() => this.decreaseBet()}>-</button>
-          <button onClick={() => this.spin()}>spin</button>
+          <button className="minus" onClick={() => this.decreaseBet()}>-</button>
+          <button className="spin" onClick={() => this.spin()}>spin</button>
+          <button className="plus" onClick={() => this.increaseBet()}>+</button>
         </div>
 
       </div>
