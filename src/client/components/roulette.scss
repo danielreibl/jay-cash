@@ -964,3 +964,22 @@ background-blend-mode: overlay;
 .black-bg {
 	background-color: #212529;
 }
+
+.winners {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	z-index: 5000;
+	transform: translate(-50%, -50%);
+	width: 400px;
+	background-color: #f08c00;
+	border: 10px solid #ffd43b;
+	padding: 10px 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	border-radius: 36px;
+	font-size: 28px;
+	text-align: center;
+}

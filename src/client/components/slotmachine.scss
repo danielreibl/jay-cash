@@ -41,6 +41,8 @@
       display: flex;
       flex-direction: column-reverse;
 
+      translate: height 0.5s ease;
+
       & > div {
         transform: translateY(50%);
       }
