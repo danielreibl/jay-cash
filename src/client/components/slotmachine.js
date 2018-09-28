@@ -20,7 +20,7 @@ export default class Slotmachine extends Component {
       spinned: false,
       isPair: false,
       spinReels: [0, 1, 2],
-      reels: [], // TODO:
+      reels: [0, 4, 8].map(i => this.generateSlot(i)),
     }
   }
   resetMachine() {
@@ -30,7 +30,7 @@ export default class Slotmachine extends Component {
       isPair: false,
       spinReels: [0, 1, 2],
       reels: this.state.reels, // TODO:
-    })
+    });
   }
   increaseBet() {
     this.setState({ bet: this.state.bet + 10 });
@@ -64,6 +64,13 @@ export default class Slotmachine extends Component {
     }
     console.log({ uniqueReel })
     // TODO:
+    this.setState({
+      bet: this.state.bet,
+      spinned: false,
+      isPair: true,
+      spinReels: [uniqueReel],
+      reels: this.state.reels, // TODO:
+    })
 
   }
 
@@ -110,12 +117,12 @@ export default class Slotmachine extends Component {
 
     console.log(result)
 
-    const reels = result.map(this.generateSlot);
+    const reels = result.map((r, i) => this.state.reels[i].concat(this.generateSlot(r)));
     this.setState({ reels });
 
     if (result[0] === result[1] && result[0] === result[2]) return await this.handleWin({ result });
     if (result[0] === result[1] || result[0] === result[2] || result[1] === result[2]) return await this.handlePair({ result });
-    return await this.resetMachine()
+    return await this.resetMachine();
   }
 
   render() {
