@@ -9,6 +9,7 @@ export default class Roulette extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      canSpin: true,
       spinTo: undefined,
       bets: [
         
@@ -29,7 +30,13 @@ export default class Roulette extends Component {
   startSpin = (result) => {
     const { winnings, winningNumber } = result;
     console.log({winnings, winningNumber});
-    this.setState({spinTo: winningNumber.toString()});
+    this.setState({spinTo: winningNumber.toString(), canSpin: false});
+    setTimeout(() => {
+      this.setState({
+        canSpin: true,
+        bets: [],
+      })
+    }, 4000);
   }
   spin = () => {
     const spin = new RouletteSpin({
@@ -170,7 +177,7 @@ export default class Roulette extends Component {
 
           </div>
         </main>
-        <button onClick={() => this.spin()}>Spin!</button>
+        <button onClick={() => this.spin()} disabled={!this.state.canSpin}>Spin!</button>
         <Link to="/">Get out!</Link>
       </div>
     )
