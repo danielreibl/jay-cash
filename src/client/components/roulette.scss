@@ -50,6 +50,199 @@ a {
 		border-radius: 50%;
 }
 
+
+.wheel {
+	transform: rotate(0turn);
+	transform-origin: center center;
+	transition: transform 4s ease-out;
+
+
+	& + .ball {
+		transform: rotate(0turn);
+		transform-origin: center center;
+		transition: transform 4s ease-out;
+
+		&:after {
+			transition: top 2s ease 2s;
+		}
+	}
+
+	&.nmb-4,
+	&.nmb-5,
+	&.nmb-6,
+	&.nmb-7,
+	&.nmb-8,
+	&.nmb-9,
+	&.nmb-10,
+	&.nmb-11,
+	&.nmb-12,
+	&.nmb-13,
+	&.nmb-14,
+	&.nmb-15,
+	&.nmb-16,
+	&.nmb-17,
+	&.nmb-18,
+	&.nmb-19,
+	&.nmb-20,
+	&.nmb-31,
+	&.nmb-32,
+	&.nmb-33,
+	&.nmb-34,
+	&.nmb-35,
+	&.nmb-36 {
+		transform: rotate(15.5turn);
+
+		& + .ball {
+			transform: rotate(-3turn);
+
+			&:after {
+				top: 86px;
+			}
+		}
+	}
+
+	&.nmb-0 {
+		transform: rotate(16.3turn);
+
+		& + .ball {
+			transform: rotate(-3turn + (11 * $magic-angle));
+
+			&:after {
+				top: 86px;
+			}
+		}
+	}
+
+	&.nmb-1 {
+		transform: rotate(16.9turn);
+
+		& + .ball {
+			transform: rotate(-3.12turn + (24 * $magic-angle));
+
+			&:after {
+				top: 86px;
+			}
+		}
+	}
+
+	&.nmb-1 {
+		transform: rotate(16.9turn);
+
+		& + .ball {
+			transform: rotate(-3.13turn + (7 * $magic-angle));
+
+			&:after {
+				top: 86px;
+			}
+		}
+	}
+
+	&.nmb-2 {
+		transform: rotate(16.9turn);
+
+		& + .ball {
+			transform: rotate(-2.1turn + (6 * $magic-angle));
+
+			&:after {
+				top: 86px;
+			}
+		}
+	}
+
+	&.nmb-3 {
+		transform: rotate(16.9turn);
+
+		& + .ball {
+			transform: rotate(-2.1turn - (2 * $magic-angle));
+
+			&:after {
+				top: 86px;
+			}
+		}
+	}
+
+	&.nmb-4 {
+		transform: rotate(14turn);
+
+		& + .ball {
+			transform: rotate(-2turn + (4 * $magic-angle));
+
+			&:after {
+				top: 86px;
+			}
+		}
+	}
+
+	&.nmb-5 {
+		transform: rotate(13.8turn);
+
+		& + .ball {
+			transform: rotate(-2.005turn + (12 * $magic-angle));
+
+			&:after {
+				top: 86px;
+			}
+		}
+	}
+
+	&.nmb-6 {
+		transform: rotate(13turn + (8 * $magic-angle));
+
+		& + .ball {
+			transform: rotate(-2turn + (18 * $magic-angle));
+
+			&:after {
+				top: 86px;
+			}
+		}
+	}
+
+	&.nmb-7 {
+		transform: rotate(13turn + (11 * $magic-angle));
+
+		& + .ball {
+			transform: rotate(-2turn + (5 * $magic-angle));
+
+			&:after {
+				top: 86px;
+			}
+		}
+	}
+
+	&.nmb-8 {
+		transform: rotate(13turn + (6 * $magic-angle));
+
+		& + .ball {
+			transform: rotate(-2turn + (22 * $magic-angle));
+
+			&:after {
+				top: 86px;
+			}
+		}
+	}
+}
+
+.ball {
+	position: absolute;
+	width: 350px;
+	height: 350px;
+	left: 50px;
+	bottom: 50px;
+
+	&:after {
+		content: "";
+		position: absolute;
+		left: 50%;
+		top: 28px;
+		margin-left: -5px;
+		display: block;
+		width: 10px;
+		background-color: white;
+		height: 10px;
+		border-radius: 50%;
+	}
+}
+
 .wheel{
 		display: flex;
 		position: absolute;
@@ -59,7 +252,6 @@ a {
 		height: 350px;
 		background-color: $base;
 		border-radius: 50%;
-
 	
 	.wheel-wood {
 		display: flex;

@@ -50,7 +50,7 @@ export default class Roulette extends Component {
           <div id="roulette">
             <div className="wheel-border"></div>
             <div className="base">
-              <div className={`wheel ${this.state.spinTo}`}  >
+              <div className={`wheel nmb-${this.state.spinTo}`}  >
                 <div className="wheel-wood">
                   <div className="wheel-steel">
                     <div className="wheel-numbers">
@@ -95,6 +95,7 @@ export default class Roulette extends Component {
                   </div>
                 </div>
               </div>
+              <div class="ball"></div>
               <div className="board">
                 <div className="board-bank green-bg">0</div>
                 <div className="board-top">
