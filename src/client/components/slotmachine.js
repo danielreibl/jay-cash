@@ -4,7 +4,12 @@ import { singletonState } from '../singletonState';
 import './slotmachine.scss';
 import { imageValues } from '../../games/slotmachine/image-values';
 
-const getRndInteger = (min, max) => Math.floor(Math.random() * (max - min + 1) ) + min;
+const generateRandom = (min, max) => Math.floor(Math.random() * (max - min + 1) ) + min;
+const getRndInteger = (min, max, prev) => {
+  let rnd = generateRandom(min, max);
+  while (rnd === prev) rnd = generateRandom(min, max);
+  return rnd;
+};
 const WHEEL_LENGTH = 50;
 
 export default class Slotmachine extends Component {
@@ -66,14 +71,20 @@ export default class Slotmachine extends Component {
     width: '100%',
     'padding-bottom': '100%',
     'background-image': `url("assets/images/${value}.jpg")`,
+    'background-size': 'cover',
   });
-  generateSlot = (winner) => {
-    const divs = [ ...Array.from({length: WHEEL_LENGTH - 2}, () => getRndInteger(0, 11)), winner, getRndInteger(0, 11)];
+  generateSlot = (winner, elementArray) => {
+    let prev = -1;
+    const divs = [ ...Array.from({length: WHEEL_LENGTH - 2}, () => {
+      prev = getRndInteger(0, 11, prev);
+      return prev;
+    }), winner, getRndInteger(0, 11)];
 
+    if (elementArray) {
+      return elementArray.concat(divs.map((value => (<div style={this.getStyle(value)}></div>))));
+    }
     return (
-      <div style={{width: '150px'}}>
-        { divs.map((value => (<div style={this.getStyle(value)}></div>))) }
-      </div>
+      divs.map((value => (<div style={this.getStyle(value)}></div>)))
     )
   };
   removeFunds = async({ amount }) => {
@@ -106,7 +117,7 @@ export default class Slotmachine extends Component {
     if (result[0] === result[1] || result[0] === result[2] || result[1] === result[2]) return await this.handlePair({ result });
     return await this.resetMachine()
   }
-  
+
   render() {
     return (
       <div className="slot-machine" id="slot-machine">
