@@ -7,7 +7,8 @@
     "test": "echo \"all tests passed\" && exit 0",
     "build-assets": "webpack",
     "build-prod": "webpack --env=prod -p",
-    "watch-assets": "webpack --watch --display-error-details --progress"
+    "watch-assets": "webpack --watch --display-error-details --progress",
+    "build": "npm run build-assets"
   },
   "keywords": [
     "casino"

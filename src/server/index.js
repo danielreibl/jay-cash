@@ -6,10 +6,11 @@ const port = 5000;
 
 app.get('/', (req, res) => res.send(html));
 app.get('/api/state', (req, res) => res.json({
-    playerId: 1234,
-    playerName: 'Jack Black',
-    balance: 1000
+  _id: '5baa2c26533d6fb80f51c00c',
+  name: 'kunb',
+  displayName: 'Kun Bela',
+  coin: 1000
 }));
-app.use(express.static('dist'))
+app.use(express.static('dist'));
 
-app.listen(port, () => console.log(`Monte Carlo is listening on port ${port}!`));
+app.listen(port, '0.0.0.0', () => console.log(`JayCash is listening on port ${port}!`));
