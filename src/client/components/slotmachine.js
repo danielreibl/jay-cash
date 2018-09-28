@@ -174,7 +174,7 @@ export default class Slotmachine extends Component {
 
     console.log(result)
 
-    const reels = result.map((r, i) => this.generateSlot(r).concat( this.state.reels[i] ));
+    const reels = result.map((r, i) => (this.state.spinReels.indexOf(i) >= 0) ? this.generateSlot(r).concat( this.state.reels[i] ) : this.state.reels[i]);
     this.setState({ reels, result });
 
     if (result[0] === result[1] && result[0] === result[2]) return await this.handleWin({ result });
