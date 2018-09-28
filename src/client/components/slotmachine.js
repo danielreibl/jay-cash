@@ -204,17 +204,20 @@ export default class Slotmachine extends Component {
         <p>
           <Link to="/">i want to go and win elswhere</Link>
         </p>
+        <div className="base">
+          <div class="player">
+            <div class="money">{this.state.user.coin}$</div>
+            <div class="image">
+              <img src="/assets/images/user.png" alt="theuser" />
+            </div>
 
-        <div class="player">
-          <div class="money">{this.state.user.coin}$</div>
-          <div class="image">
-            <img src="/assets/images/user.png" alt="theuser" />
+            <button className="minus" onClick={() => this.decreaseBet()}>-</button>
+            <button className="plus" onClick={() => this.increaseBet()}>+</button>
+            <button className="spin" onClick={() => this.spin()}>spin</button>
+            
           </div>
-
-          <button className="minus" onClick={() => this.decreaseBet()}>-</button>
-          <button className="spin" onClick={() => this.spin()}>spin</button>
-          <button className="plus" onClick={() => this.increaseBet()}>+</button>
         </div>
+        
 
       </div>
     )
