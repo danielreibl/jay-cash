@@ -12,6 +12,9 @@ export default class Roulette extends Component {
       canSpin: true,
       spinTo: undefined,
       animate: true,
+      user: {
+        coin: 0,
+      },
       bets: [
         
       ]
@@ -40,12 +43,23 @@ export default class Roulette extends Component {
     console.log({winnings, winningNumber});
     this.setState({spinTo: winningNumber.toString(), canSpin: false});
     console.log({
-      userName: 'lllllllll', bet: this.state.bets.reduce((p, n) => p + n.value, 0), change: 0,
+      userName: 'lllllllll', bet: this.state.bets.reduce((p, n) => p + n.value, 0), change: 1,
     })
     setTimeout(async () => {
-      await axios.post('/api/bet', {
-        userName: 'lllllllll', bet: this.state.bets.reduce((p, n) => p + n.value, 0), change: 0,
-      });
+      for(let bet of this.state.bets) {
+        const win = winnings.find((win) => `${win.type}-${win.location}` === `${bet.type}-${bet.location}`);
+        const result = await axios.post('/api/bet', {
+          userName: 'lllllllll', bet: 100, change: !win ? -100 : win.payout,
+        });
+        const { coin } = result.data;
+        console.log({coin})
+        this.setState({
+          user: {
+            ...this.state.user, coin
+          }
+        });
+      };
+      
       console.log('ready')
       this.setState({
         canSpin: true,
@@ -186,7 +200,7 @@ export default class Roulette extends Component {
               </div>
                 
               <div class="player">
-                <div class="money">666$</div>
+                <div class="money">{this.state.user.coin}$</div>
                 <div class="image">
                   <img src="/assets/images/user.png" alt="theuser" />
                 </div>
