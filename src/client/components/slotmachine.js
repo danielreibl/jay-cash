@@ -200,7 +200,7 @@ export default class Slotmachine extends Component {
           <input type="text" value={this.state.nextUser} onChange={(e) => this.changeNextUser(e)}></input><button onClick={() => this.changeUser()}>Login user</button>
           <h1>JayCash</h1>
         </div>
-        {this.state.bet}
+        
 
 
 
@@ -227,7 +227,7 @@ export default class Slotmachine extends Component {
             <div class="image">
               <img src="/assets/images/user.png" alt="theuser" />
             </div>
-
+            <div className="bet">{this.state.bet} $</div> 
             <button className="minus" onClick={() => this.decreaseBet()}>-</button>
             <button className="plus" onClick={() => this.increaseBet()}>+</button>
             <button className="spin" onClick={() => this.spin()}>spin</button>

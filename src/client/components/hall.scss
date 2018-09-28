@@ -76,6 +76,19 @@ a {
 		line-height: 240px;
 		margin-bottom: 20px;
 	}
+
+	.black {
+		display: inline-block;
+		width: 120px;
+		height: 120px;
+		background: {
+			image: url(/assets/images/blackjack.png);
+			size: cover;
+		}
+		text-align: center;
+		line-height: 240px;
+		margin-bottom: 20px;
+	}
 }
 
 	.header {
@@ -84,6 +97,7 @@ a {
 		right: 0;
 		width: 100%;
 		height: 80px;
+		z-index: 5001;
 
 		border-bottom: 1px solid $base-border;
     	background-color: $base;

@@ -34,8 +34,8 @@ export default class Hall extends Component {
         <p>
           <div className="links">
           <Link className="roluette" to="/roulette">roulette</Link>
-          <Link to="/blackjack">blackjack</Link>
           <Link className="slotmachine" to="/slotmachine">slotmachine</Link>
+          <Link className="black" to="/blackjack">blackjack</Link>
           </div>
         </p>
         </div>

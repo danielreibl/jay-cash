@@ -934,6 +934,15 @@ background-blend-mode: overlay;
 		&.plus {
 			right: 0;
 		}
+
+	}
+	.bet {
+		font-size: 30px;
+		position: absolute;
+		right: 0;
+		top: 10px;
+		width: 290px;
+		text-align: center;
 	}
 }
 
