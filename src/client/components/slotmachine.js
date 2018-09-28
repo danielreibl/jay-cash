@@ -80,9 +80,9 @@ export default class Slotmachine extends Component {
       return prev;
     }), winner, getRndInteger(0, 11)];
 
-    if (elementArray) {
+    /*if (elementArray) {
       return elementArray.concat(divs.map((value => (<div style={this.getStyle(value)}></div>))));
-    }
+    }*/
     return (
       divs.map((value => (<div style={this.getStyle(value)}></div>)))
     )
@@ -130,7 +130,15 @@ export default class Slotmachine extends Component {
         
 
         <div className="slot-body">
-          {this.state.reels}
+          <div>
+            <div>{this.state.reels[0]}</div>
+          </div>
+          <div>
+            <div>{this.state.reels[1]}</div>
+          </div>
+          <div>
+            <div>{this.state.reels[2]}</div>
+          </div>
         </div>
 
 
