@@ -112,7 +112,7 @@ export default class Roulette extends Component {
               <input type="text" value={this.state.nextUser} onChange={(e) => this.changeNextUser(e)}></input><button onClick={() => this.changeUser()}>Login user</button>
               <h1>JayCash</h1>
             </div>
-            <div className={'winners'}>Winners: {this.state.winners.join(', ')}</div>
+            {this.state.winners.length ? <div className={'winners'}>Winners: {this.state.winners.join(', ')}</div> : ''}
             <div className="wheel-border"></div>
             <div className="base">
 
