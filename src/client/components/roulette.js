@@ -104,6 +104,8 @@ export default class Roulette extends Component {
     window.Rgm = RouletteSpin
     return (
       <div>
+        <audio src={"/assets/sounds/hall.mp3"} controls="true" loop="true" autoplay="true"></audio>
+        {!this.state.canSpin ? <audio src={!this.state.canSpin ? "/assets/sounds/ball.mp3" : ""} controls="true" loop="true" autoplay="true"></audio> : null}
         <main>
           <div id="roulette">
             <div class="header">
