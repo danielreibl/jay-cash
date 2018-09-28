@@ -235,7 +235,7 @@ export default class Slotmachine extends Component {
           </div>
         </div>
         
-
+        <Link className="exit" to="/">Get out!</Link>
       </div>
     )
   }
