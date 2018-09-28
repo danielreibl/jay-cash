@@ -177,12 +177,14 @@ export default class Roulette extends Component {
                 <div class="image">
                   <img src="/assets/images/user.png" alt="theuser" />
                 </div>
+
+                 <button onClick={() => this.spin()} disabled={!this.state.canSpin}>Spin!</button>
+          
               </div>    
             </div>
 
           </div>
         </main>
-        <button onClick={() => this.spin()} disabled={!this.state.canSpin}>Spin!</button>
         <Link to="/">Get out!</Link>
       </div>
     )

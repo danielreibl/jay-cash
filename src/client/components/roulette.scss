@@ -67,24 +67,6 @@ a {
 		}
 	}
 
-	
-	&.nmb-31,
-	&.nmb-32,
-	&.nmb-33,
-	&.nmb-34,
-	&.nmb-35,
-	&.nmb-36 {
-		transform: rotate(15.5turn);
-
-		& + .ball {
-			transform: rotate(-3turn);
-
-			&:after {
-				top: 86px;
-			}
-		}
-	}
-
 	&.nmb-0 {
 		transform: rotate(16.3turn);
 
@@ -780,14 +762,37 @@ a {
 
 
 .player {
+	height: 100%;
 	position: absolute;
 	right: 50px;
 	bottom: 0;
 
 	.money {
+		position: absolute;
+		bottom: 50px;
+		right: 0;
 		font-size: 80px;
 		color: #FDB931;
-		text-shadow: 3px 3px 4px  #D1B464;
+		text-shadow: 1px 1px 0  #D1B464;
+	}
+
+	button {
+		position: absolute;
+		top: 50px;
+		right: 0;
+		font-size: 36px;
+		color: white;
+		background-color: #087f5b;
+		padding: 5px 25px;
+		border: 3px solid darken(#087f5b, 15%);
+		border-radius: 8px;
+		background: linear-gradient(
+			135deg,
+			transparent,
+			transparent,
+      	rgba(0, 0, 0, 0.3)
+    	);
+    background-blend-mode: overlay;
 	}
 }
 
