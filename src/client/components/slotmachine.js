@@ -21,7 +21,7 @@ export default class Slotmachine extends Component {
       result: [0, 4, 8],
       spinned: false,
       isPair: false,
-      spinReels: [0, 1, 2], 
+      spinReels: [0, 1, 2],
       reels: [0, 4, 8].map(i => this.generateSlot(i)),
       user: {
         coin: 0,
@@ -109,11 +109,16 @@ export default class Slotmachine extends Component {
     'background-size': 'cover',
   });
   generateSlot = (winner, elementArray) => {
-    let prev = -1;
-    const divs = [ ...Array.from({length: WHEEL_LENGTH - 2}, () => {
-      prev = getRndInteger(0, 11, prev);
-      return prev;
-    }), winner, getRndInteger(0, 11)];
+    let prev = getRndInteger(0, 11);
+    console.log(winner)
+    const divs = [
+      prev,
+      winner,
+      ...Array.from({length: WHEEL_LENGTH - 2}, () => {
+        prev = getRndInteger(0, 11, prev);
+        return prev;
+      }),
+    ];
 
     /*if (elementArray) {
       return elementArray.concat(divs.map((value => (<div style={this.getStyle(value)}></div>))));
@@ -179,6 +184,9 @@ export default class Slotmachine extends Component {
           <h1>JayCash</h1>
         </div>
         {this.state.bet}
+
+
+
 
         <div className="slot-body">
           <div>
