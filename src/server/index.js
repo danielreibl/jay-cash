@@ -24,14 +24,12 @@ app.get('/api/user/:userName', async (req, res) => {
 
 app.post('/api/bet', async (req, res) => {
   const { userName, bet, change } = req.body;
-  console.log({ userName, bet, change });
   const betResponse = await axios.post(`${TARGET_URL}/api/nav/log`, {
     bet,
     change,
     userName,
     gameId: GAME_ID,
   });
-  console.log('??????', betResponse)
   return res.json(betResponse.data);
 });
 

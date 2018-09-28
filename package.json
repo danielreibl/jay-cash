@@ -14,7 +14,7 @@
   "keywords": [
     "casino"
   ],
-  "author": "Daniel Reible, Laszlo Varga, Miklos Lukasik, Robert Lovei",
+  "author": "Daniel Reibl, Laszlo Varga, Miklos Lukasik, Robert Lovei",
   "license": "ISC",
   "dependencies": {
     "autoprefixer": "^9.1.5",
