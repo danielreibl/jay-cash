@@ -74,6 +74,9 @@ export default class Roulette extends Component {
       <div>
         <main>
           <div id="roulette">
+            <div class="header">
+              <h1>JayCash</h1>
+            </div>
             <div className="wheel-border"></div>
             <div className="base">
               <div className={`wheel nmb-${this.state.spinTo} ${this.state.animate ? 'animate' : 'no-animate'}`}  >
