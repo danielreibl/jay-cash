@@ -73,17 +73,18 @@ export default class Slotmachine extends Component {
     'background-image': `url("assets/images/${value}.jpg")`,
     'background-size': 'cover',
   });
-  generateSlot = (winner) => {
+  generateSlot = (winner, elementArray) => {
     let prev = -1;
     const divs = [ ...Array.from({length: WHEEL_LENGTH - 2}, () => {
       prev = getRndInteger(0, 11, prev);
       return prev;
     }), winner, getRndInteger(0, 11)];
 
+    if (elementArray) {
+      return elementArray.concat(divs.map((value => (<div style={this.getStyle(value)}></div>))));
+    }
     return (
-      <div style={{width: '150px'}}>
-        { divs.map((value => (<div style={this.getStyle(value)}></div>))) }
-      </div>
+      divs.map((value => (<div style={this.getStyle(value)}></div>)));
     )
   };
   removeFunds = async({ amount }) => {
